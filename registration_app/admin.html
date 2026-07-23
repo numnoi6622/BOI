@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BOI STEM++</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <div class="logo">BOI <span>STEM++</span></div>
+            <h2>ระบบจัดการหลังบ้าน</h2>
+            <p>กรุณากรอกรหัสผ่านเพื่อเข้าสู่ระบบ</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="password" id="admin-password" placeholder="รหัสผ่าน" required>
+                </div>
+                <button type="submit" class="btn-primary">เข้าสู่ระบบ</button>
+            </form>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen (Hidden by default) -->
+    <div id="dashboard-screen" class="dashboard-container" style="display: none;">
+        <nav class="navbar">
+            <div class="logo">BOI <span>Admin</span></div>
+            <div class="nav-actions">
+                <button id="refresh-btn" class="btn-secondary">รีเฟรชข้อมูล</button>
+                <button id="logout-btn" class="btn-danger">ออกจากระบบ</button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <div class="header-section">
+                <h1>ข้อมูลผู้ลงทะเบียนทั้งหมด</h1>
+                <div class="stat-card">
+                    <h3>จำนวนผู้สมัคร</h3>
+                    <p id="total-count">0</p>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>วันที่สมัคร</th>
+                                <th>ชื่อ - นามสกุล</th>
+                                <th>อีเมล / เบอร์โทร</th>
+                                <th>บริษัท / องค์กร</th>
+                                <th>วุฒิการศึกษา</th>
+                                <th>หลักสูตรที่เลือก</th>
+                                <th>สถานที่/วันที่</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="loading-spinner" class="loading">
+                    <div class="spinner"></div>
+                    <p>กำลังโหลดข้อมูล...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
